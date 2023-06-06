@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.image.BitmapActivity
+import com.example.audiovideo.pcmandwav.PCMActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnShowImage.setOnClickListener {
                 val intent = Intent(this,BitmapActivity::class.java)
                 startActivity(intent)
+        }
+        binding.btnPcm.setOnClickListener {
+            val intent = Intent(this,PCMActivity::class.java)
+            startActivity(intent)
         }
     }
 }

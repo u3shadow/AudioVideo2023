@@ -11,4 +11,9 @@
       android:id="@+id/btn_show_image"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
+  <Button
+      android:text="PCM录制播放"
+      android:id="@+id/btn_pcm"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.audiovideo" >
+    package="com.example.audiovideo">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AudioVideo"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".pcmandwav.WAVActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pcmandwav.PCMActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -24,9 +31,7 @@
         </activity>
         <activity
             android:name=".image.BitmapActivity"
-            android:exported="false" >
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
