@@ -40,17 +40,17 @@ class PCMActivity : AppCompatActivity() {
     private val channelConfig = AudioFormat.CHANNEL_IN_MONO
     private val audioFormat = AudioFormat.ENCODING_PCM_16BIT
     private val bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat)
-    private val audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC,
-        sampleRate,channelConfig,
-        audioFormat,bufferSize)
-
     private var isRecording = true
     private lateinit var file:File
     private fun record(){
         val fileName = "record.pcm"
         file = File(this.filesDir, fileName)
         val outputStream = DataOutputStream(FileOutputStream(file))
-       audioRecord.startRecording()
+        val audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC,
+            sampleRate,channelConfig,
+            audioFormat,bufferSize)
+        audioRecord.startRecording()
+        isRecording = true
         val buffer = ByteArray(bufferSize)
         Thread{
             while (isRecording){
@@ -59,27 +59,31 @@ class PCMActivity : AppCompatActivity() {
                     outputStream.write(buffer,0,bytesRead)
                 }
             }
+            audioRecord.stop()
+            audioRecord.release()
             outputStream.close()
         }.start()
     }
     private fun stopRecording(){
         isRecording = false
-        audioRecord.stop()
-        audioRecord.release()
+
     }
+    private val channelOutConfig = AudioFormat.CHANNEL_OUT_MONO
     private fun play(){
         stopRecording()
-        val bufferSize = AudioTrack.getMinBufferSize(sampleRate, channelConfig, audioFormat)
+        val bufferSize = AudioTrack.getMinBufferSize(sampleRate, channelOutConfig, audioFormat)
         val audioTrack = AudioTrack(
             AudioManager.STREAM_MUSIC,
             sampleRate,
-            channelConfig,
+            channelOutConfig,
             audioFormat,
             bufferSize,
             AudioTrack.MODE_STREAM
         )
         try{
-            val fileInputStream  = FileInputStream("record.pcm")
+            val fileName = "record.pcm"
+            file = File(this.filesDir, fileName)
+            val fileInputStream  = FileInputStream(file)
             val dataInputStream  = DataInputStream(fileInputStream)
 
             audioTrack.play()
