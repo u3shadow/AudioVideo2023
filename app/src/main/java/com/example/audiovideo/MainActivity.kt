@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.image.BitmapActivity
 import com.example.audiovideo.pcmandwav.PCMActivity
+import com.example.audiovideo.pcmandwav.WAVActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnPcm.setOnClickListener {
             val intent = Intent(this,PCMActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnWav.setOnClickListener {
+            val intent = Intent(this,WAVActivity::class.java)
             startActivity(intent)
         }
     }

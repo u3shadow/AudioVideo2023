@@ -16,4 +16,9 @@
       android:id="@+id/btn_pcm"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
+  <Button
+      android:text="WAV录制播放"
+      android:id="@+id/btn_wav"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
 </LinearLayout>
