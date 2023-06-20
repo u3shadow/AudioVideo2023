@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.audiovideo.camerapreview.PreviewActivity
 import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.image.BitmapActivity
 import com.example.audiovideo.pcmandwav.PCMActivity
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnWav.setOnClickListener {
             val intent = Intent(this,WAVActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnPreview.setOnClickListener {
+            val intent = Intent(this,PreviewActivity::class.java)
             startActivity(intent)
         }
     }
