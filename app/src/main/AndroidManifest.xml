@@ -4,7 +4,8 @@
     package="com.example.audiovideo">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AudioVideo"
         tools:targetApi="31">
+        <activity
+            android:name=".camerapreview.PreviewActivity"
+            android:exported="false" />
         <activity
             android:name=".pcmandwav.WAVActivity"
             android:exported="false" />
