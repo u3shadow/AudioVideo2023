@@ -26,4 +26,14 @@
       android:id="@+id/btn_preview"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
+  <Button
+      android:text="拆分mp4"
+      android:id="@+id/btn_extra_mp4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+  <Button
+      android:text="合成mp4"
+      android:id="@+id/btn_mux_mp4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
 </LinearLayout>
