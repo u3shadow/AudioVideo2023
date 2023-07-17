@@ -15,12 +15,8 @@ object MP4Muxer {
     fun muxerMP4(){
         try{
             val file = File(Environment.getExternalStorageDirectory().absoluteFile
-                .toString() + "/mux_video.mp4")
-            file.createNewFile()
-            mediaExtractor = getMediaExtractor(
-                Environment.getExternalStorageDirectory().absoluteFile
-                    .toString() + "/mux_video.mp4"
-            )
+                .toString() + "/input.mp4")
+            mediaExtractor = getMediaExtractor(file.absolutePath)
             val videoIndex: Int = getIndex(mediaExtractor!!, "video/")
             //切换道视频信号的信道
             mediaExtractor?.selectTrack(videoIndex)
