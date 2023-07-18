@@ -36,4 +36,9 @@
       android:id="@+id/btn_mux_mp4"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
+  <Button
+      android:text="显示三角"
+      android:id="@+id/btn_show_triangle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
 </LinearLayout>
