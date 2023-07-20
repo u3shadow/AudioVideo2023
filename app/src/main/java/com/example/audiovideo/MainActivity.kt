@@ -11,6 +11,7 @@ import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.image.BitmapActivity
 import com.example.audiovideo.mp4.Mp4Handler
 import com.example.audiovideo.opengl.MyGLActivity
+import com.example.audiovideo.openglpic.MyGLPicActivity
 import com.example.audiovideo.pcmandwav.PCMActivity
 import com.example.audiovideo.pcmandwav.WAVActivity
 
@@ -53,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnShowTriangle.setOnClickListener {
             startActivity(Intent(this,MyGLActivity::class.java))
+        }
+        binding.btnShowPic.setOnClickListener {
+            startActivity(Intent(this,MyGLPicActivity::class.java))
         }
     }
 }

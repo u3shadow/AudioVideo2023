@@ -40,6 +40,7 @@
             android:name=".image.BitmapActivity"
             android:exported="false" />
         <activity android:name=".opengl.MyGLActivity"/>
+        <activity android:name=".openglpic.MyGLPicActivity"/>
     </application>
 
 </manifest>
