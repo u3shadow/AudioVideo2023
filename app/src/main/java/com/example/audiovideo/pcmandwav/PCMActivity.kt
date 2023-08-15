@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.audiovideo.R
 import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.databinding.ActivityPcmactivityBinding
@@ -43,8 +44,16 @@ class PCMActivity : AppCompatActivity() {
     private var isRecording = true
     private lateinit var file:File
     private fun record(){
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.RECORD_AUDIO),
+                1234);
+        }
         val fileName = "record.pcm"
-        file = File(this.filesDir, fileName)
+        file = File(Environment.getExternalStorageDirectory()
+            .absolutePath, fileName)
         val outputStream = DataOutputStream(FileOutputStream(file))
         val audioRecord = AudioRecord(MediaRecorder.AudioSource.MIC,
             sampleRate,channelConfig,
@@ -82,7 +91,8 @@ class PCMActivity : AppCompatActivity() {
         )
         try{
             val fileName = "record.pcm"
-            file = File(this.filesDir, fileName)
+            file = File(Environment.getExternalStorageDirectory()
+                .absolutePath, fileName)
             val fileInputStream  = FileInputStream(file)
             val dataInputStream  = DataInputStream(fileInputStream)
 

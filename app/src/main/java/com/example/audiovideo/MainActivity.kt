@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.audiovideo.aac.AACDeCoder
+import com.example.audiovideo.aac.EncodeAACTool
 import com.example.audiovideo.camerapreview.PreviewActivity
 import com.example.audiovideo.databinding.ActivityMainListBinding
 import com.example.audiovideo.image.BitmapActivity
@@ -57,6 +59,20 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnShowPic.setOnClickListener {
             startActivity(Intent(this,MyGLPicActivity::class.java))
+        }
+        binding.btnEncodeAac.setOnClickListener {
+            val encoder = EncodeAACTool()
+            encoder.encode(Environment.getExternalStorageDirectory()
+                .absolutePath,"myaac")
+        }
+        binding.btnEncodeAac.setOnClickListener {
+            val encoder = EncodeAACTool()
+            encoder.encode(Environment.getExternalStorageDirectory()
+                .absolutePath,"myaac")
+        }
+        binding.btnDecodeAac.setOnClickListener {
+            val decoder = AACDeCoder()
+            decoder.decode()
         }
     }
 }

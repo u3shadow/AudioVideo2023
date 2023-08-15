@@ -46,4 +46,14 @@
       android:id="@+id/btn_show_pic"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"/>
+  <Button
+      android:text="aac硬编"
+      android:id="@+id/btn_encode_aac"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
+  <Button
+      android:text="aac硬解"
+      android:id="@+id/btn_decode_aac"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"/>
 </LinearLayout>
